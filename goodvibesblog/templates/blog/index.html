@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}Posts{% endblock %}</h2>
+    {% if g.usuario %}
+        <a href="{{ url_for('blog.crear') }}" id="new">New post</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% for publicacion in publicaciones %}
+
+    <article>
+        <header>
+            <div>
+                <h1>{{ publicacion.titulo }}</h1>
+                <div class="autor">
+                    <img src="{{ obtener_usuario(publicacion.autor).img }}" height="48" width="48" alt="user_img">
+                    Posted by {{ obtener_usuario(publicacion.autor).nombre }}
+                    on {{ publicacion.fecha.strftime('%Y-%m-%d') }}
+                </div>
+            </div>
+            <div>
+                {% if g.usuario.id == publicacion.autor %}
+                <a href="{{ url_for('blog.actualizar', id = publicacion.id) }}"><img src="{{ url_for('static', filename = 'img/boligrafo.png') }}" alt="" class="acciones"></a>
+                <a href="{{ url_for('blog.eliminar', id = publicacion.id) }}"><img src="{{ url_for('static', filename = 'img/borrar.png') }}" alt="" class="acciones"></a>
+                {% endif %}
+            </div>
+            
+        </header>
+        <div>
+            <p id="cuerpo">{{ publicacion.cuerpo }}</p>
+        </div>
+        <div class="content-image">
+            <a href="{{ publicacion.link }}" target="_blank" ><img src="{{ publicacion.img }}" alt="post_img" class="image"></a>
+            <div class="texto-hover">View more</div>
+        </div>
+    </article>
+
+{% endfor %}
+{% endblock %}
+

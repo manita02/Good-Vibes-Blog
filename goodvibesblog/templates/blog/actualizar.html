@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}Post update{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <form method="POST">
+        <label for="titulo">Title</label>
+        <input type="text" name="titulo" id="titulo" value="{{ publicacion.titulo }}" required>
+        <label for="cuerpo">Description</label>
+        <textarea name="cuerpo" id="cuerpo" cols="30" rows="10" required>{{ publicacion.cuerpo }}</textarea>
+        <label for="img">Image</label>
+        <input type="text" name="img" id="img" value="{{ publicacion.img }}" required>
+        <label for="link">Link for more information</label>
+        <input type="text" name="link" id="link" value="{{ publicacion.link }}" required>
+
+        <input type="submit", value="Save">
+    </form>
+</div>
+
+
+{% endblock %}

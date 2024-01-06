@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img/shaka.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilos.css') }}">
+    <title>{% block title %}{% endblock %}~GoodVibesBlog</title>
+</head>
+<body>
+    <header class="header">
+        <div class="nav">
+            <div>
+                <a href="{{ url_for('blog.index') }}">
+                    <h1>Good Vibes Blog</h1>
+                </a>
+            </div>
+            <nav>
+                {% if g.usuario %}
+                    <img src="{{ g.usuario.img }}" height="64" width="64" alt="user_img">
+                    <span>{{ g.usuario.nombre }}</span>
+                    <a href="{{ url_for('autenticacion.cerrar_sesion') }}">LOG OUT</a>
+                {% else %}
+                    <a href="{{ url_for('autenticacion.registrar') }}">SIGN UP</a>
+                    <a href="{{ url_for('autenticacion.login') }}">LOGIN IN</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="content">
+            <header>{% block header %}{% endblock %}</header> <!--para encabezado-->
+
+            {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+
+    <footer>
+        <div class="redes-sociales">
+          <a href="https://github.com/manita02" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:manitacoqui@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/2236179480/?text=hola!" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="www.linkedin.com/in/ana-lucia-juarez-88084524b" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 Good Vibes Blog <br> Developed by Ana Lucia Juarez</p>
+    </footer>
+</body>
+</html>
