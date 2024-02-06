@@ -1,6 +1,8 @@
 from goodvibesblog import app, bd
 
 
+
+
 #if __name__ == '__main__': #entrypoint
  #   app.run()
 

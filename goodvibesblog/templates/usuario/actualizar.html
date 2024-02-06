@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}User update{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <form method="POST">
+        <label for="nombre">Username</label>
+        <input type="text" name="nombre" id="nombre" value="{{ usuario.nombre }}" required>
+        <label for="img">Image</label>
+        <input type="text" name="img" id="img" value="{{ usuario.img }}" required>
+        <input type="submit", value="Save">
+    </form>
+    <div class="back">
+        <a href="{{ url_for('blog.index') }}" ><img src="{{ url_for('static', filename = 'img/volver.png') }}" alt="" class="acciones"></a></a>
+    </div>
+</div>
+
+
+{% endblock %}

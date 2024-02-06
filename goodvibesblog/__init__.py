@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 
 #Cargar configuraciones
@@ -13,6 +14,9 @@ app.register_blueprint(autenticacion) #registrar el blueprint en mi aplicacion
 
 from goodvibesblog.vistas.blog import blog
 app.register_blueprint(blog)
+
+from goodvibesblog.vistas.usuario import usuario
+app.register_blueprint(usuario)
 
 
 #bd.create_all()

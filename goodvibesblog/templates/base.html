@@ -18,7 +18,7 @@
             </div>
             <nav>
                 {% if g.usuario %}
-                    <img src="{{ g.usuario.img }}" height="64" width="64" alt="user_img">
+                    <a href="{{ url_for('usuario.actualizar', id = g.usuario.id) }}"><img src="{{ g.usuario.img }}" height="64" width="64" alt="user_img"></a> 
                     <span>{{ g.usuario.nombre }}</span>
                     <a href="{{ url_for('autenticacion.cerrar_sesion') }}">LOG OUT</a>
                 {% else %}

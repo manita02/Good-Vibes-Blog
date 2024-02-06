@@ -65,6 +65,11 @@ def login():
             error = 'Contraseña incorrecta'
         
         if error == None:
+            
+            #time.sleep(5)
+            #flash("asdasd")
+            #time.sleep(5)
+            #flash("ksjdfjksndfjksdn")
             session.clear()
             session['user_id'] = usuario.id 
             return redirect(url_for('blog.index')) #redirecciona a la pagina de inicio      

@@ -47,8 +47,13 @@ body{
 
 .nav nav img{
     border-radius: 5px;
+    transition: transform 0.5s, box-shadow 0.5s; /* Transición suave */
 }
 
+.nav nav img:hover{
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen en hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añade una sombra en hover */
+}
 
 
 /* Content */
@@ -167,6 +172,7 @@ article header .autor img{
     transition: .2s;
 }
 
+
 #new:hover{
     background: #324239;
     box-shadow: 1px 2px 6px 1 px rgba(0, 0, 0, .2);
@@ -182,7 +188,7 @@ form{
     flex-direction: column;
 }
 
-form label, input, textarea{
+form label, input, textarea, a{
     font-weight: 500;
     margin: 5px 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -210,6 +216,10 @@ form input[type = submit]{
 .login input[type = submit]:hover{
     background-color: #04364A;
     cursor: pointer;
+}
+
+.back{
+    text-align: center;
 }
 
 /* Footer */
