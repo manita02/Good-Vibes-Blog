@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-
 app = Flask(__name__)
 
 #Cargar configuraciones
@@ -17,6 +16,14 @@ app.register_blueprint(blog)
 
 from goodvibesblog.vistas.usuario import usuario
 app.register_blueprint(usuario)
+
+
+#from goodvibesblog.vistas.mensaje import mensaje
+#app.register_blueprint(mensaje)
+
+
+
+
 
 
 #bd.create_all()

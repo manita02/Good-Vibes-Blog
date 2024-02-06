@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block header %}
+    <h2>{% block title %}mensajitoo{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="contenedor-llamativo">
+        <div class="mensaje">
+            {{ resultado }}
+        </div>
+    </div>
+    <div class="back">
+        <a href="{{ url_for('blog.index') }}" id="new">Go to home page</a>
+    </div>
+{% endblock %}
