@@ -15,6 +15,8 @@ from goodvibesblog.modelos.usuario import Usuario
 #importo bd
 from goodvibesblog import bd
 
+from goodvibesblog.vistas.mensaje import obtener_mensaje  
+
 autenticacion = Blueprint('autenticacion', __name__, url_prefix='/autenticacion')
 
 #Registrar un usuario
@@ -38,6 +40,7 @@ def registrar():
         if nombre_a_buscar == None:
             bd.session.add(usuario) #agrega el usuario a la bd
             bd.session.commit()
+            #return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(5, 'User'))
             return redirect(url_for('autenticacion.login'))
         else:
             error = f'El usuario {nombre} ya esta registrado'       
@@ -72,7 +75,8 @@ def login():
             #flash("ksjdfjksndfjksdn")
             session.clear()
             session['user_id'] = usuario.id 
-            return redirect(url_for('blog.index')) #redirecciona a la pagina de inicio      
+            return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(5, 'User'))
+            #return redirect(url_for('blog.index')) #redirecciona a la pagina de inicio      
         
         flash(error)    
     

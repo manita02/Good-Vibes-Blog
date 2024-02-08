@@ -12,7 +12,7 @@ from goodvibesblog.vistas.autenticacion import login_requerido
 
 from goodvibesblog import bd
 
-#from goodvibesblog.vistas.mensaje import obtener_mensaje  esto para compartir este metodo en usuarios y blog
+from goodvibesblog.vistas.mensaje import obtener_mensaje  
 
 blog = Blueprint('blog', __name__)
 
@@ -27,7 +27,7 @@ def index():
     bd.session.commit()
     return render_template('blog/index.html', publicaciones = publicaciones, obtener_usuario = obtener_usuario) #este return manda todos estos parametros con la informacion a la pag de index.html
 
-
+'''
 def obtener_mensaje(numero):
     if numero == 1:
         return 'Se ha actualizado la publicacion'
@@ -43,7 +43,7 @@ def mensaje(numero):
     #numero = 3
     resultado = obtener_mensaje(numero)
     return render_template('blog/mensaje.html', resultado = resultado)
-
+'''
 
 #crear publicacion
 @blog.route('/blog/crear', methods=('GET', 'POST')) 
@@ -73,7 +73,8 @@ def crear():
         else:
             bd.session.add(publicacion)
             bd.session.commit()
-            return redirect(url_for('blog.index'))
+            return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(4, 'Post'))
+            #return redirect(url_for('blog.index'))
     
         flash(error)      
     return render_template('blog/crear.html')
@@ -122,7 +123,7 @@ def actualizar(id):
         else:
             bd.session.add(publicacion)#agrega un registro y si ese registro no tiene id va a crear un nuevo registro, pero si ese registro si tiene un id lo que va a hacer sera actualizarlo
             bd.session.commit()
-            return render_template('blog/mensaje.html', resultado = obtener_mensaje(1))
+            return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(1, 'Post'))
             #return redirect(url_for('blog.index'))
     
         flash(error)      
@@ -138,7 +139,7 @@ def eliminar(id):
     bd.session.delete(publicacion)
     bd.session.commit()
 
-    return render_template('blog/mensaje.html', resultado = obtener_mensaje(2))
+    return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(2, 'Post'))
     #return redirect(url_for('blog.index'))
 
 

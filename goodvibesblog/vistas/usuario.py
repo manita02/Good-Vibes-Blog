@@ -10,6 +10,8 @@ from goodvibesblog.vistas.autenticacion import login_requerido
 
 from goodvibesblog.vistas.autenticacion import cerrar_sesion
 
+from goodvibesblog.vistas.mensaje import obtener_mensaje  
+
 from goodvibesblog import bd
 
 usuario = Blueprint('usuario', __name__)
@@ -45,7 +47,8 @@ def actualizar(id):
         else:
             bd.session.add(usuario)#agrega un registro y si ese registro no tiene id va a crear un nuevo registro, pero si ese registro si tiene un id lo que va a hacer sera actualizarlo
             bd.session.commit()
-            return redirect(url_for('blog.index'))
+            return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(3, 'User'))
+            #return redirect(url_for('blog.index'))
     
         flash(error)      
     return render_template('usuario/actualizar.html', usuario = usuario)
@@ -60,5 +63,5 @@ def eliminar(id):
     bd.session.delete(usuario)
     bd.session.commit()
     cerrar_sesion()
-    #return render_template('blog/mensaje.html', resultado = obtener_mensaje(2))
+    return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(2, 'User'))
     return redirect(url_for('blog.index'))

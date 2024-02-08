@@ -178,6 +178,7 @@ article header .autor img{
     background: #324239;
     box-shadow: 1px 2px 6px 1 px rgba(0, 0, 0, .2);
     transform: translateY(-2px);
+    cursor: pointer;
 }
 
 

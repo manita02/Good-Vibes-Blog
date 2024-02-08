@@ -18,8 +18,8 @@ from goodvibesblog.vistas.usuario import usuario
 app.register_blueprint(usuario)
 
 
-#from goodvibesblog.vistas.mensaje import mensaje
-#app.register_blueprint(mensaje)
+from goodvibesblog.vistas.mensaje import mensaje_bp
+app.register_blueprint(mensaje_bp)
 
 
 
