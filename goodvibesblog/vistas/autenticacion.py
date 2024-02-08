@@ -30,11 +30,11 @@ def registrar():
         usuario = Usuario(nombre, generate_password_hash(password), img) #objeto usuario a crear por constructor
         error = None
         if not nombre: 
-            error = 'Nombre de usuario es obligatorio'
+            error = 'Username is required'
         elif not password:
-            error = 'Contraseña obligatoria'
+            error = 'Password is required'
         elif not img:
-            error = 'Foto de perfil obligatoria'
+            error = 'Perfil photo is required'
 
         nombre_a_buscar = Usuario.query.filter_by(nombre = nombre).first() #consulta a bd para chequear si el usuario a crear es igual a alguno existente en la bd
         if nombre_a_buscar == None:
@@ -43,7 +43,7 @@ def registrar():
             #return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(5, 'User'))
             return redirect(url_for('autenticacion.login'))
         else:
-            error = f'El usuario {nombre} ya esta registrado'       
+            error = f'User {nombre} is already registered'       
         flash(error)      
     return render_template('autenticacion/registro.html')
 
@@ -63,9 +63,9 @@ def login():
         usuario = Usuario.query.filter_by(nombre = nombre).first() #consulta a bd para chequear si el usuario a crear es igual a alguno existente en la bd
         
         if usuario == None: 
-            error = 'El usuario a logearse no existe'
+            error = 'The user does not exist when logging in'
         elif not check_password_hash(usuario.password, password): #la contraseña coincide con el usuario a logearse
-            error = 'Contraseña incorrecta'
+            error = 'Incorrect password'
         
         if error == None:
             

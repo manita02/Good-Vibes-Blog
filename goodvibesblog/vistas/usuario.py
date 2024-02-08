@@ -23,7 +23,7 @@ def obtener_usuario(id):
     usuario = Usuario.query.get(id)
     #si el usuario es nulo entonces no existe
     if usuario is None:
-        abort(404, f'ID {id} del usuario no existe')
+        abort(404, f'User ID {id} does not exist')
     return usuario
 
 #Actualizar usuario
@@ -40,9 +40,9 @@ def actualizar(id):
             
         error = None
         if not usuario.nombre: 
-            error = 'Nombre obligatorio'
+            error = 'Name is required'
         elif not usuario.img:
-            error = 'Imagen obligatoria'
+            error = 'Perfil photo is required'
 
         if error is not  None:
             flash(error)

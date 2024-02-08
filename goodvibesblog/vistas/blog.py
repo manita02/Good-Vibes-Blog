@@ -65,13 +65,13 @@ def crear():
         
         error = None
         if not titulo: 
-            error = 'Titulo obligatorio'
+            error = 'Title is required'
         elif not cuerpo:
-            error = 'Cuerpo obligatorio'
+            error = 'Description is required'
         elif not img:
-            error = 'Imagen obligatoria'
+            error = 'Image is required'
         elif not link:
-            error = 'Link obligatorio'
+            error = 'Link for more information is required'
 
         if error is not  None:
             flash(error)
@@ -90,7 +90,7 @@ def obtener_publicacion(id, chequear_autor = True):
     
     #si la publicacion es nula entonces no existe
     if publicacion is None:
-        abort(404, f'ID {id} de la publicación no existe')
+        abort(404, f'Post ID {id} does not exist')
 
     if chequear_autor and publicacion.autor != g.usuario.id:
         abort(404)
@@ -115,13 +115,13 @@ def actualizar(id):
             
         error = None
         if not publicacion.titulo: 
-            error = 'Titulo obligatorio'
+            error = 'Title is required'
         elif not publicacion.cuerpo:
-            error = 'Cuerpo obligatorio'
+            error = 'Description is required'
         elif not publicacion.img:
-            error = 'Imagen obligatoria'
+            error = 'Image is required'
         elif not publicacion.link:
-            error = 'Link obligatorio'
+            error = 'Link for more information is required'
 
         if error is not  None:
             flash(error)
