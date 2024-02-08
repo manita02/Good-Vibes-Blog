@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h2>{% block title %}Post create{% endblock %}</h2>
+    <h2>{% block title %}POST CREATE{% endblock %}</h2>
 {% endblock %}
 
 {% block content %}
 <div class="login">
     <form method="POST">
-        <label for="titulo">Title</label>
+        <label for="titulo">TITLE:</label>
         <input type="text" name="titulo" id="titulo" required>
-        <label for="cuerpo">Description</label>
+        <label for="cuerpo">DESCRIPTION:</label>
         <textarea name="cuerpo" id="cuerpo" cols="30" rows="10" required></textarea>
-        <label for="img">Image</label>
+        <label for="img">IMAGE:</label>
         <input type="text" name="img" id="img" required>
-        <label for="link">Link for more information</label>
+        <label for="link">LINK FOR MORE INFORMATION:</label>
         <input type="text" name="link" id="link" required>
 
         <input type="submit", value="Save">

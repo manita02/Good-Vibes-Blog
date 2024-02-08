@@ -8,6 +8,9 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     
 }
 
@@ -60,6 +63,7 @@ body{
 .content{
     max-width: 85%;
     margin: 20px auto;
+    flex: 1;
 }
 
 .content header{
@@ -230,6 +234,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
+    margin-top: auto;
   }
   
 footer p{
@@ -398,7 +403,7 @@ footer p{
 
 .contenedor-llamativo {
     margin: 20px;
-    background-color: #ffcc00; /* Color de fondo */
+    background: linear-gradient(#B67352, #FF8911);
     color: #fff; /* Color del texto */
     padding: 20px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados */
@@ -412,6 +417,12 @@ footer p{
     text-transform: uppercase; /* Convertir texto en mayúsculas */
     letter-spacing: 2px; /* Espaciado entre letras */
   }
+
+  .mensaje img {
+    padding-top: 20px;
+    display: block; /* Asegura que la imagen sea un bloque para poder centrarla */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
   
 
 

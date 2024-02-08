@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h2>{% block title %}User update{% endblock %}</h2>
+    <h2>{% block title %}USER UPDATE{% endblock %}</h2>
     {% if g.usuario %}
         <!--<a href="{{ url_for('usuario.eliminar', id = g.usuario.id) }}" id="new">Delete User</a> -->
         <a onclick="confirmarEliminar()" id="new">Delete User</a> 
@@ -10,9 +10,9 @@
 {% block content %}
 <div class="login">
     <form method="POST">
-        <label for="nombre">Username</label>
+        <label for="nombre">USERNAME:</label>
         <input type="text" name="nombre" id="nombre" value="{{ usuario.nombre }}" required>
-        <label for="img">Image</label>
+        <label for="img">PERFIL PHOTO:</label>
         <input type="text" name="img" id="img" value="{{ usuario.img }}" required>
         <input type="submit", value="Save">
     </form>

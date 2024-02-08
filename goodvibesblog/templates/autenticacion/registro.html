@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h2>{% block title %}User register{% endblock %}</h2>
+    <h2>{% block title %}USER REGISTER{% endblock %}</h2>
 {% endblock %}
 
 {% block content %}
 <div class="login">
     <form method="POST">
-        <label for="nombre">Username</label>
+        <label for="nombre">USERNAME:</label>
         <input type="text" name="nombre" id="nombre" required>
-        <label for="password">Password</label>
+        <label for="password">PASSWORD:</label>
         <input type="password" name="password" id="password" required>
-        <label for="img">Perfil photo</label>
+        <label for="img">PERFIL PHOTO:</label>
         <input type="text" name="img" id="img" required>
         <input type="submit", value="Register">
     </form>
