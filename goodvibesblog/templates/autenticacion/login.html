@@ -12,5 +12,8 @@
         <input type="password" name="password" id="password" required>
         <input type="submit", value="Login in">
     </form>
+    <div class="back">
+        <a href="{{ url_for('blog.index') }}" ><img src="{{ url_for('static', filename = 'img/volver.png') }}" alt="" class="acciones"></a></a>
+    </div>
 </div>
 {% endblock %}

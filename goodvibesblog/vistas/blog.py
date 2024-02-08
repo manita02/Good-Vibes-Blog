@@ -21,6 +21,11 @@ def obtener_usuario(id):
     usuario = Usuario.query.get_or_404(id)
     return usuario
 
+def verificar_publicaciones_usuario(id_usuario):
+    # Ejecuta una consulta para contar el número de publicaciones del usuario dado
+    num_publicaciones = Publicacion.query.filter_by(autor=id_usuario).count()
+    return num_publicaciones
+
 @blog.route("/")
 def index():
     publicaciones = Publicacion.query.all() #obtiene todas las publicaciones que existan en la bd

@@ -12,6 +12,8 @@ from goodvibesblog.vistas.autenticacion import cerrar_sesion
 
 from goodvibesblog.vistas.mensaje import obtener_mensaje  
 
+from goodvibesblog.vistas.blog import verificar_publicaciones_usuario
+
 from goodvibesblog import bd
 
 usuario = Blueprint('usuario', __name__)
@@ -60,8 +62,15 @@ def actualizar(id):
 @login_requerido
 def eliminar(id):
     usuario = obtener_usuario(id)
-    bd.session.delete(usuario)
-    bd.session.commit()
-    cerrar_sesion()
-    return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(2, 'User'))
-    return redirect(url_for('blog.index'))
+    error = None
+
+    if verificar_publicaciones_usuario(usuario.id) > 0: 
+       error = 'This user has posts posted on the blog. First delete all the posts made by this user, and then you can delete this user'
+       flash(error) 
+    else: 
+        bd.session.delete(usuario)
+        bd.session.commit()
+        cerrar_sesion()
+        return render_template('mensajes/Mensajee.html', resultado = obtener_mensaje(2, 'User'))
+        return redirect(url_for('blog.index'))
+    return redirect(url_for('usuario.actualizar', id = usuario.id)) 

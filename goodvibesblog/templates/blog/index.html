@@ -26,7 +26,7 @@
                 <!--<button onclick="confirmarEliminar()">probando borrar</button>-->
                 <script>
                     function confirmarEliminar() {
-                       var resultado = window.confirm('Estas seguro que desea eliminar esta publicación?');
+                       var resultado = window.confirm('Are you sure you want to delete this post??');
                        if (resultado === true) {
                            window.location.href = "/blog/eliminar/{{ publicacion.id }}"; 
                        } 
