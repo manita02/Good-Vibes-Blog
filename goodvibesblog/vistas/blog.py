@@ -138,6 +138,7 @@ def eliminar(id):
     bd.session.delete(publicacion)
     bd.session.commit()
 
-    return redirect(url_for('blog.index'))
+    return render_template('blog/mensaje.html', resultado = obtener_mensaje(2))
+    #return redirect(url_for('blog.index'))
 
 

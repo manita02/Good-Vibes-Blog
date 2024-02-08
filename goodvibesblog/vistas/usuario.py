@@ -8,6 +8,8 @@ from goodvibesblog.modelos.usuario import Usuario
 
 from goodvibesblog.vistas.autenticacion import login_requerido
 
+from goodvibesblog.vistas.autenticacion import cerrar_sesion
+
 from goodvibesblog import bd
 
 usuario = Blueprint('usuario', __name__)
@@ -57,5 +59,6 @@ def eliminar(id):
     usuario = obtener_usuario(id)
     bd.session.delete(usuario)
     bd.session.commit()
-
+    cerrar_sesion()
+    #return render_template('blog/mensaje.html', resultado = obtener_mensaje(2))
     return redirect(url_for('blog.index'))

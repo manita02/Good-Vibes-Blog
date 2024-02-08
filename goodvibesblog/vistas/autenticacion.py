@@ -92,6 +92,7 @@ def cargar_usuario_logeado():
 @autenticacion.route('/logout')
 def cerrar_sesion():
     session.clear()
+    
     return redirect(url_for('blog.index')) 
 
 

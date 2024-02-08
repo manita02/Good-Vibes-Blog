@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block header %}
     <h2>{% block title %}User update{% endblock %}</h2>
+    {% if g.usuario %}
+        <!--<a href="{{ url_for('usuario.eliminar', id = g.usuario.id) }}" id="new">Delete User</a> -->
+        <a onclick="confirmarEliminar()" id="new">Delete User</a> 
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -17,5 +21,13 @@
     </div>
 </div>
 
+<script>
+    function confirmarEliminar() {
+       var resultado = window.confirm('Estas seguro que desea eliminar este usuario');
+       if (resultado === true) {
+           window.location.href = "/usuario/eliminar/{{ g.usuario.id }}"; 
+       } 
+    }        
+</script>
 
 {% endblock %}

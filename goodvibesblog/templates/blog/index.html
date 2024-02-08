@@ -24,24 +24,17 @@
             <div>
                 {% if g.usuario.id == publicacion.autor %}
                 <a href="{{ url_for('blog.actualizar', id = publicacion.id) }}"><img src="{{ url_for('static', filename = 'img/boligrafo.png') }}" alt="" class="acciones"></a>
-                <a href="{{ url_for('blog.eliminar', id = publicacion.id) }}"><img src="{{ url_for('static', filename = 'img/borrar.png') }}" alt="" class="acciones"></a>
-                
-                <button onclick="confirmarEliminar()">probando borrar</button>
-
+                <a onclick="confirmarEliminar()"><img src="{{ url_for('static', filename = 'img/borrar.png') }}" alt="" class="acciones"></a>
+                <!--<button onclick="confirmarEliminar()">probando borrar</button>-->
                 <script>
                     function confirmarEliminar() {
-                       var resultado = window.confirm('Estas seguro?');
+                       var resultado = window.confirm('Estas seguro que desea eliminar esta publicación?');
                        if (resultado === true) {
-                           //window.alert('Okay, si estas seguro.');
-                           window.location.href = "/eliminar/{{ id }}"; //este esta errado
-                       } else { 
-                           //window.alert('Pareces indeciso');
-                           window.location.href = "/";
-                       }
+                           window.location.href = "/blog/eliminar/{{ publicacion.id }}"; 
+                       } 
                     }        
-               </script>
-                
-                
+               </script>  
+               
                 {% endif %}
             </div>
             
