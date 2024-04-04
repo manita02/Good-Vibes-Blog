@@ -38,6 +38,10 @@
     ```bash
         mysql --version
         py --version
+        py -m pip install flask 
+        py -m pip install --upgrade pip
+        py -m pip install flask_sqlalchemy
+        py -m pip install pymysql
     ``` 
 
 ### :white_check_mark: `Descargar proyecto`:inbox_tray:
